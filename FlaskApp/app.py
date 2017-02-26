@@ -118,12 +118,13 @@ def addPr():
         if session.get('user'):
             _title = request.form['inputTitle']
             _amount = request.form['inputAmount']
+            _date_ach = request.form['inputDate_Ach']
             _description = request.form['inputDescription']
             _user = session.get('user')
 
             conn = mysql.connect()
             cursor = conn.cursor()
-            cursor.callproc('sp_addPr',(_title,_amount,_description,_user))
+            cursor.callproc('sp_addPr',(_title,_amount,_date_ach,_description,_user))
             data = cursor.fetchall() 
 
             if len(data) is 0:
@@ -157,8 +158,9 @@ def getPr():
                     'Id': pr[0],
                     'Title': pr[1],
                     'Amount': pr[2],
-                    'Description': pr[3],
-                    'Date': pr[5]}
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
                 prs_dict.append(pr_dict)
             
             return json.dumps(prs_dict)
@@ -182,7 +184,7 @@ def getPrById():
             result = cursor.fetchall()
 
             pr = []
-            pr.append({'Id': result[0][0], 'Title':result[0][1],'Amount':result[0][2],'Description':result[0][3]})
+            pr.append({'Id': result[0][0], 'Title':result[0][1],'Amount':result[0][2],'Date_Ach': result[0][3], 'Description':result[0][4]})
 
             return json.dumps(pr)
         else:
@@ -198,12 +200,13 @@ def updatePr():
             _user = session.get('user')
             _title = request.form['title']
             _amount = request.form['amount']
+            _date_ach = request.form['date_ach']
             _description = request.form['description']
             _pr_id = request.form['id']
 
             conn= mysql.connect()
             cursor = conn.cursor()
-            cursor.callproc('sp_updatePr',(_title,_amount,_description,_pr_id,_user))
+            cursor.callproc('sp_updatePr',(_title,_amount,_date_ach,_description,_pr_id,_user))
             data = cursor.fetchall()
 
             if len(data) is 0:

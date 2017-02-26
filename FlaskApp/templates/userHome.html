@@ -33,6 +33,7 @@
                     data: {
                         title: $('#editTitle').val(),
                         amount: $('#editAmount').val(),
+                        date_ach: $('#editDate_Ach').val(),
                         description: $('#editDescription').val(),
                         id: localStorage.getItem('editId')
                     },
@@ -103,6 +104,7 @@
                     var data = JSON.parse(res);
                     $('#editTitle').val(data[0]['Title']);
                     $('#editAmount').val(data[0]['Amount']);
+                    $('#editDate_Ach').val(data[0]['Date_Ach']);
                     $('#editDescription').val(data[0]['Description']);
 
                     $('#editModal').modal();
@@ -170,7 +172,8 @@
             </div>
         </div>
     </div>
-    
+
+    <!-- UPDATE PR FORM SECTION -->
     <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -192,6 +195,11 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="date_ach" class="control-label">Date:</label>
+                            <input type="date" class="form-control" id="editDate_Ach">
+                        </div>
+
+                        <div class="form-group">
                             <label for="description" class="control-label">Description:</label>
                             <textarea class="form-control" id="editDescription"></textarea>
                         </div>
@@ -205,6 +213,7 @@
         </div>
     </div>
 
+    <!-- DELETE PR SECTION -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
