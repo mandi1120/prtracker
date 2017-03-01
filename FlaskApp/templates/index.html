@@ -2,37 +2,53 @@
 <html lang="en">
  
 <head>
-    <title>Python Flask Bucket List App</title>
+    <title>PR Tracker - Python Flask App</title>
  
- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
- 
+    <!--
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    -->
+    <link href="http://getbootstrap.com/examples/jumbotron/jumbotron.css" rel="stylesheet">
  
+    <!-- CUSTOM STYLESHEET --> 
+    <link href="\static\css\custom.css" rel="stylesheet">
  
 </head>
  
 <body>
- 
-    <div class="container">
-        <div class="header">
-            <nav>
-                <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="/">Home</a>
-                    </li>
-                    <li role="presentation"><a href="showSignin">Sign In</a>
-                    </li>
-                    <li role="presentation"><a href="showSignUp">Sign Up</a>
-                    </li>
-                </ul>
-            </nav>
-            <h3 class="text-muted">Python Flask App</h3>
+        <div class="container">
+
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><a href="/">Home</a>
+            </li>
+            <li role="presentation"><a href="showSignin">Sign In</a>
+            </li>
+            <li role="presentation"><a href="showSignUp">Sign Up</a>
+            </li>
+            </ul>
+        </nav>
+    <div class="header">
+            <img src="/static/images/prtracker.png">
+    </div>
+    <div class="jumbotron">
+<!--        <div class="container">  -->
+<!--        <div class="jumbotron">  -->
+            <h1>Start Logging</h1>
+            <p class="lead">Use this python flask application to record your progress in the gym.</p>
+            <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up</a>
+            <a class="btn btn-lg btn-success" href="showSignin" role="button">Sign in</a>
+            </p> 
         </div>
- 
-        <div class="jumbotron">
-            <h1>Bucket List App</h1>
-            <p class="lead"></p>
-            <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up today</a>
-            </p>
-        </div>
- 
+    <footer class="footer">
+        <p>&copy; Mandi Hanway 2017</p>
+    </footer>
+    </div>
+<!--    <footer class="footer">
+        <p>&copy; Mandi Hanway 2017</p>
+    </footer>  -->
+  </body>
+</html>    

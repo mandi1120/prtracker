@@ -8,10 +8,18 @@
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
  
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
- 
+<!--    <link href="../static/css/userhome.css" rel="stylesheet"> -->
+
     <script src="../static/js/jquery-3.1.1.min.js"></script>
  
- 
+<style>
+    .header img {
+        width: 150px;
+    }
+    legend {
+        text-align: center;
+    }
+</style> 
 </head>
  
 <body>
@@ -20,38 +28,38 @@
         <div class="header">
             <nav>
                 <ul class="nav nav-pills pull-right">
-                    <li role="presentation" class="active"><a href="#">Add Item</a>
+                    <li role="presentation" class="active"><a href="/showAddPr">Add Item</a>
                     </li>
                     <li role="presentation"><a href="/logout">Logout</a>
                     </li>
                 </ul>
             </nav>
-            <h3 class="text-muted">Python Flask App</h3>
+        <img src="/static/images/prtracker.png">
         </div>
         <section>
             <form class="form-horizontal" method="post" action="/addPr">
                 <fieldset>
  
                     <!-- Form Name - ADD PR FORM -->
-                    <legend>Create Your Wish</legend>
+                    <legend>Enter your new PR</legend>
  
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="txtTitle">Title</label>
+                        <label class="col-md-4 control-label" for="txtTitle">Type of Lift</label>
                         <div class="col-md-4">
                             <input id="txtTitle" name="inputTitle" type="text" placeholder="placeholder" class="form-control input-md">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="txtAmount">Amount</label>
+                        <label class="col-md-4 control-label" for="txtAmount">Weight</label>
                         <div class="col-md-4">
                             <input id="txtAmount" name="inputAmount" type="text" placeholder="placeholder" class="form-control input-md">
                         </div>
                     </div> 
                     
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="txtDate_Ach">Date</label>
+                        <label class="col-md-4 control-label" for="txtDate_Ach">Date Achieved</label>
                         <div class="col-md-4">
                             <input id="txtDate_Ach" name="inputDate_Ach" type="date" placeholder="placeholder" class="form-control input-md">
                         </div>
@@ -59,7 +67,7 @@
 
                     <!-- Textarea -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="txtPost">Post</label>
+                        <label class="col-md-4 control-label" for="txtPost">Notes</label>
                         <div class="col-md-4">
                             <textarea class="form-control" id="txtPost" name="inputDescription"></textarea>
                         </div>
