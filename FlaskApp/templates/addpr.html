@@ -11,7 +11,23 @@
 <!--    <link href="../static/css/userhome.css" rel="stylesheet"> -->
 
     <script src="../static/js/jquery-3.1.1.min.js"></script>
- 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+<!-- this script will make the 'other' select input box appear if implemented
+<script type="text/javascript">
+    $(function () {
+        $("#txtTitle").change(function () {
+            if ($(this).val() == "Other") {
+                $("#dvOther").show();
+            } else {
+                $("#dvOther").hide();
+            }
+        });
+    });
+</script>       -->
+
 <style>
     .header img {
         width: 150px;
@@ -19,6 +35,9 @@
     legend {
         text-align: center;
     }
+
+
+
 </style> 
 </head>
  
@@ -44,32 +63,51 @@
                     <legend>Enter your new PR</legend>
  
                     <!-- Text input-->
-                    <div class="form-group">
+
+
+                   <div class="form-group">
                         <label class="col-md-4 control-label" for="txtTitle">Type of Lift</label>
                         <div class="col-md-4">
-                            <input id="txtTitle" name="inputTitle" type="text" placeholder="placeholder" class="form-control input-md">
+<!--                            <input id="txtTitle" name="inputTitle" type="radio-inline" placeholder="type of lift" class="form-control input-md">-->
+                           <select class="form-control" id="txtTitle" name="inputTitle">
+                                <option value="Bench">Bench</option>
+                                <option value="Back Squat">Back Squat</option>
+                                <option value="Front Squat">Front Squat</option>
+                                <option value="Conventional Deadlift">Conventional Deadlift</option>
+                                <option value="Sumo Deadlift">Sumo Deadlift</option>
+                                <option value="OHP">OHP</option>
+                                <option value="Row">Row</option>
+                            </select>
+
+<!-- this is a hidden field to display upon selcting "other" if implemented-->
+<!--<div id="dvOther" style="display: none">
+    Specify:
+    <input type="text" id="txtTitle" name="inputTitle"/>
+</div>
+-->
+
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="txtAmount">Weight</label>
                         <div class="col-md-4">
-                            <input id="txtAmount" name="inputAmount" type="text" placeholder="placeholder" class="form-control input-md">
+                            <input id="txtAmount" name="inputAmount" type="text" placeholder="weight" class="form-control input-md">
                         </div>
                     </div> 
                     
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="txtDate_Ach">Date Achieved</label>
                         <div class="col-md-4">
-                            <input id="txtDate_Ach" name="inputDate_Ach" type="date" placeholder="placeholder" class="form-control input-md">
+                            <input id="txtDate_Ach" name="inputDate_Ach" type="date" placeholder="date" class="form-control input-md">
                         </div>
                     </div> 
 
                     <!-- Textarea -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="txtPost">Notes</label>
+                        <label class="col-md-4 control-label" for="txtDescription">Notes</label>
                         <div class="col-md-4">
-                            <textarea class="form-control" id="txtPost" name="inputDescription"></textarea>
+                            <textarea class="form-control" id="txtDescription" name="inputDescription"></textarea>
                         </div>
                     </div>
  
@@ -86,7 +124,7 @@
  
         </section>
         <footer class="footer">
-            <p>&copy; Company 2015</p>
+            <p>&copy; Mandi Hanway 2017</p>
         </footer>
  
     </div>
