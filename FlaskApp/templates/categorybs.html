@@ -22,7 +22,7 @@
 
     <script>
         $(function() {
-            GetPrs();
+            GetPrsBs();
             $('#btnUpdate').click(function(){
                 $.ajax({
                     url: '/updatePr',
@@ -36,7 +36,7 @@
                     type: 'POST',
                     success: function(res) {
                         $('#editModal').modal('hide');
-                            GetPrs();
+                            GetPrsBs();
                     },
                     error: function(error) {
                         console.log(error);
@@ -45,10 +45,9 @@
             });
         });
 
-        function GetPrs() {
+        function GetPrsBs() {
             var category = document.getElementById("category").value;
             var pageUrl;
-
             if (category === 'backsquat') {
                 pageUrl = '/getPrBacksquat';
             }
@@ -70,7 +69,9 @@
             else if (category === 'ohp'){
                 pageUrl = '/getPrOhp';
             }
-            
+            else if (category === '*'){
+                pageUrl = '/getPr';
+            }
             else {
                 pageUrl = '/getPr';
             }
@@ -121,7 +122,7 @@
                     var result = JSON.parse(res);
                     if(result.status == 'OK') {
                         $('#deleteModal').modal('hide');
-                        GetPrs();
+                        GetPrsBs();
                     }
                     else{
                         alert(result.status);
@@ -185,9 +186,10 @@
         <h1>My PR Board</h1>
 
 
-<!--  category filter dropdown-->
-<!--            <div class="dropdown">
-                <select class="form-control" id="category" name="category" data-width="fit" onchange="GetPrs()">
+<!--  trying to add category filter -->
+            <div class="dropdown">
+
+                <select class="form-control" id="category" name="category" onchange="GetPrsBs()">
                 <option title="" value="">Select Category...</option>
                 <option value="*">Show all</option>
                 <option value="bench">Bench</option>
@@ -199,7 +201,37 @@
                 <option value="row">Row</option>
                 </select>
             </div>
+
+!<!--            <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" name="category" id="category">Category
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Show all</a></li>
+    <li><a href="#">Bech</a></li>
+    <li><a href="/prbs">Back squat</a></li>
+  </ul>
+</div>  -->
+<!--            <script type = "text/javascript">
+                $(document).ready(function(){
+                    $('#category').click(function() {
+                    var template = $('#listTemplate').val();
+
+                    $.ajax({
+                        url: '/getPrBacksquat',
+                        type: 'POST',          
+                    success: function(res) {
+                        var html = $(data).filter('#ulist').html();
+                    $('#ulist').html(html);
+                    
+                    },
+                error: function(error) {
+                    console.log(error);
+                    }
+                })
+            })  
+            </script>
 -->
+
 
         <script id="listTemplate" type="text/x-jQuery-tmpl">
             <li class="list-group-item">
@@ -218,22 +250,6 @@
 
     <div class="row">
         <div class="col-md-12">
-
-<!--  category filter dropdown-->            
-            <div class="dropdown">
-                <select class="form-control" id="category" name="category" data-width="fit" onchange="GetPrs()">
-                <option title="" value="">Select Category...</option>
-                <option value="*">Show all</option>
-                <option value="bench">Bench</option>
-                <option value="backsquat">Back Squat</option>
-                <option value="frontsquat">Front Squat</option>
-                <option value="condeadlift">Conventional Deadlift</option>
-                <option value="sumodeadlift">Sumo Deadlift</option>
-                <option value="ohp">OHP</option>
-                <option value="row">Row</option>
-                </select>
-            </div>
-
             <div class="panel-body">
                 <ul id="ulist" class="list-group">
                 </ul>

@@ -19,6 +19,13 @@ mysql.init_app(app)
 def main():
     return render_template('index.html')
 
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
+@app.route("/contact")
+def contact():
+    return render_template('contact.html')
 
 @app.route('/showSignUp')
 def showSignUp():
@@ -100,6 +107,14 @@ def userHome():
         return render_template('error.html',error = 'Unauthorized Access')
 
 
+@app.route('/prbs')
+def prbs():
+    if session.get('user'):
+        return render_template('categorybs.html') 
+    else:
+        return render_template('error.html',error = 'Unauthorized Access')
+
+
 @app.route('/logout')
 def logout():
     session.pop('user',None)
@@ -170,6 +185,209 @@ def getPr():
     except Exception as e:
         return render_template('error.html', error=str(e))
 
+#######################attempting to sort by category############################
+@app.route('/getPrBacksquat')
+def getPrBacksquat():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategoryBacksquat',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+@app.route('/getPrFrontsquat')
+def getPrFrontsquat():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategoryFrontsquat',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+@app.route('/getPrBench')
+def getPrBench():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategoryBench',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+@app.route('/getPrOhp')
+def getPrOhp():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategoryOhp',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+@app.route('/getPrRow')
+def getPrRow():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategoryRow',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+@app.route('/getPrConvDeadlift')
+def getPrConvDeadlift():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategoryConvDeadlift',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+@app.route('/getPrSumoDeadlift')
+def getPrSumoDeadlift():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetPrByCategorySumo',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
 
 @app.route('/getPrById', methods=['POST'])
 def getPrById():
@@ -245,6 +463,9 @@ def deletePr():
         cursor.close()
         conn.close()
 
+@app.template_filter('reverse')
+def reverse_filter(s):
+    return s[::-1]
 
 if __name__ == "__main__":
     app.run(debug=True)
