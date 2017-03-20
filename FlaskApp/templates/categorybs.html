@@ -45,9 +45,10 @@
             });
         });
 
-        function GetPrsBs() {
+        function GetPrs() {
             var category = document.getElementById("category").value;
             var pageUrl;
+
             if (category === 'backsquat') {
                 pageUrl = '/getPrBacksquat';
             }
@@ -69,9 +70,7 @@
             else if (category === 'ohp'){
                 pageUrl = '/getPrOhp';
             }
-            else if (category === '*'){
-                pageUrl = '/getPr';
-            }
+            
             else {
                 pageUrl = '/getPr';
             }

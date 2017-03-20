@@ -133,11 +133,34 @@
             });
         }
 /*----- correcting date formatting ------*/
-        function DateCustomFormat(Date_Ach) {
+/*        function DateCustomFormat(Date_Ach) {
             var dateObj = new Date(Date_Ach);
             var dateStr = (dateObj.getMonth()+1) + "/" + (dateObj.getDate()+1) + "/" + dateObj.getFullYear();
                 return dateStr;
         }
+*/
+        function DateCustomFormat(Date_Ach) {
+            var dateObj = new Date(Date_Ach);
+            if (dateObj.getMonth() < 9) {
+                if (dateObj.getDate() < 9) {
+                    var dateStr = "0" + (dateObj.getMonth()+1) + "/" + "0" + (dateObj.getDate()+1) + "/" + dateObj.getFullYear();
+                }
+                else {
+                    var dateStr = "0" + (dateObj.getMonth()+1) + "/" + (dateObj.getDate()+1) + "/" + dateObj.getFullYear();
+                }
+            }
+            else {
+                if (dateObj.getDate() < 9) {
+                    var dateStr = "0" + (dateObj.getMonth()+1) + "/" + "0" + (dateObj.getDate()+1) + "/" + dateObj.getFullYear();
+                }
+                else {
+                var dateStr = (dateObj.getMonth()+1) + "/" + (dateObj.getDate()+1) + "/" + dateObj.getFullYear();
+                }
+            }
+            return dateStr;
+        }
+
+
 /*----- end correct date formatting ------*/
 
         function Edit(elm) {
@@ -151,7 +174,8 @@
                     var data = JSON.parse(res);
                     $('#editTitle').val(data[0]['Title']);
                     $('#editAmount').val(data[0]['Amount']);
-                    $('#editDate_Ach').val(data[0]['Date_Ach']);
+ /*                   $('#editDate_Ach').val(data[0]['Date_Ach']);    */
+                    $('#editDate_Ach').val(data[0][DateCustomFormat('Date_Ach')]);
                     $('#editDescription').val(data[0]['Description']);
                     $('#editModal').modal();
                 },
@@ -183,23 +207,6 @@
         <img src="/static/images/prtracker.png">
         </div>
         <h1>My PR Board</h1>
-
-
-<!--  category filter dropdown-->
-<!--            <div class="dropdown">
-                <select class="form-control" id="category" name="category" data-width="fit" onchange="GetPrs()">
-                <option title="" value="">Select Category...</option>
-                <option value="*">Show all</option>
-                <option value="bench">Bench</option>
-                <option value="backsquat">Back Squat</option>
-                <option value="frontsquat">Front Squat</option>
-                <option value="condeadlift">Conventional Deadlift</option>
-                <option value="sumodeadlift">Sumo Deadlift</option>
-                <option value="ohp">OHP</option>
-                <option value="row">Row</option>
-                </select>
-            </div>
--->
 
         <script id="listTemplate" type="text/x-jQuery-tmpl">
             <li class="list-group-item">
@@ -277,7 +284,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="button" id="btnUpdate" class="btn btn-primary">Update</button>
-                </div>
+                </div>F
             </div>
         </div>
     </div>

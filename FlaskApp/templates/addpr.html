@@ -2,7 +2,7 @@
 <html lang="en">
  
 <head>
-    <title>Python Flask Bucket List App</title>
+    <title>Python Flask PR Tracker</title>
  
  
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,8 +13,15 @@
     <script src="../static/js/jquery-3.1.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
+    <script>
+        function randomMsg() {
+            var aMsg = ["Good Job!","Excellent!","Super!","Way to go!","Keep it up!","Great!","Wow!","Nice!","Awesome!","Great job!"];
+            var rdmMsg = Math.floor(Math.random() * (aMsg.length));
+            document.getElementById("randomMsgP").innerHTML = aMsg[rdmMsg];                
+        }
+    </script>
 <!-- this script will make the 'other' select input box appear if implemented
 <script type="text/javascript">
     $(function () {
@@ -36,8 +43,55 @@
         text-align: center;
     }
 
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    font-size:48px;
+    font-weight: bold;
+    font-color: #337ab7 !important;
+    text-align: center !important;
+}
 
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 48px;
+    font-color: #337ab7 !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
 </style> 
 </head>
  
@@ -63,12 +117,9 @@
                     <legend>Enter your new PR</legend>
  
                     <!-- Text input-->
-
-
                    <div class="form-group">
                         <label class="col-md-4 control-label" for="txtTitle">Type of Lift</label>
                         <div class="col-md-4">
-<!--                            <input id="txtTitle" name="inputTitle" type="radio-inline" placeholder="type of lift" class="form-control input-md">-->
                            <select class="form-control" id="txtTitle" name="inputTitle">
                                 <option value="Bench">Bench</option>
                                 <option value="Back Squat">Back Squat</option>
@@ -85,7 +136,6 @@
     <input type="text" id="txtTitle" name="inputTitle"/>
 </div>
 -->
-
                         </div>
                     </div>
 
@@ -111,23 +161,58 @@
                         </div>
                     </div>
  
-                    <!-- Button -->
+                    <!-- Publish Button -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <label class="col-md-4 control-label" for="publish"></label>
                         <div class="col-md-4">
-                            <input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Publish" />
+                            <input id="publish" name="publish" class="btn btn-primary" type="submit" value="Publish"/>
                         </div>
                     </div>
- 
                 </fieldset>
-            </form>
- 
+            </form> 
         </section>
+
+
+        <!-- Modal content -->        
+        <div id="randomMsgDiv" class="modal" onshow="randomMsg()">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                   <p id="randomMsgP">text</p>
+            </div>
+        </div>
+
+
+    <script>
+    // Get the modal
+        var modal = document.getElementById('randomMsgDiv');
+    // Get the button that opens the modal
+        var btn = document.getElementById("publish");
+    // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+    // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        randomMsg();
+        }
+    // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+    // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        }
+    </script>
+
+
         <footer class="footer">
             <p>&copy; Mandi Hanway 2017</p>
         </footer>
  
     </div>
+
 </body>
  
 </html>

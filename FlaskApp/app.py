@@ -419,6 +419,7 @@ def updatePr():
             _title = request.form['title']
             _amount = request.form['amount']
             _date_ach = request.form['date_ach']
+           # _date_ach = JSON.parse(_date_ach)
             _description = request.form['description']
             _pr_id = request.form['id']
 
