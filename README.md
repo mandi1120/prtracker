@@ -7,5 +7,5 @@ Homepage:
 Login Page:
 ![login](https://cloud.githubusercontent.com/assets/20828566/23881091/167bb844-0826-11e7-93af-88f0b162f727.png)
 
-Logged-in User Home with PR Listing Sorted by Category:
+Logged-in User Home with PR Listing Filtered by Category:
 ![userhome](https://cloud.githubusercontent.com/assets/20828566/23881093/1a3b6e16-0826-11e7-9a8b-88e6998b82e8.png)
