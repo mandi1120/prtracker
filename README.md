@@ -11,4 +11,4 @@ Login Page:
 ![signin](https://cloud.githubusercontent.com/assets/20828566/24225449/892e4082-0f2e-11e7-8339-8c12034d09fa.png)
 
 Logged-in User with PR Listing Filtered by Category:
-![userhome](https://cloud.githubusercontent.com/assets/20828566/24225451/8c8c9102-0f2e-11e7-98ce-d71ad6fbb779.png)
+![userhome](https://cloud.githubusercontent.com/assets/20828566/24225676/c91ea2b2-0f2f-11e7-87e9-0ad704918e8c.png)
