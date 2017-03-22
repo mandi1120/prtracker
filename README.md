@@ -2,13 +2,13 @@
 This is a python flask application utilizing javascript, jquery, mysql and bootstrap, intended for use in tracking personal records (PR's) on various lifts in the gym.
 
 Homepage:
-![image](https://cloud.githubusercontent.com/assets/20828566/24225270/85212fe6-0f2d-11e7-90ea-5e6b8037cd8e.png)
+![home](https://cloud.githubusercontent.com/assets/20828566/24225445/7db51f3c-0f2e-11e7-9518-05119a9a119a.png)
 
 Signup Page:
-![image](https://cloud.githubusercontent.com/assets/20828566/24225275/90f13550-0f2d-11e7-8704-67d6921d3570.png)
+![signup](https://cloud.githubusercontent.com/assets/20828566/24225447/83e62568-0f2e-11e7-8455-ae0fa5293aeb.png)
 
 Login Page:
-![image](https://cloud.githubusercontent.com/assets/20828566/24225280/99e66aea-0f2d-11e7-8bf3-1daa589c20d1.png)
+![signin](https://cloud.githubusercontent.com/assets/20828566/24225449/892e4082-0f2e-11e7-8339-8c12034d09fa.png)
 
-Logged-in User Home with PR Listing Filtered by Category:
-![image](https://cloud.githubusercontent.com/assets/20828566/24225284/a4c7262a-0f2d-11e7-8459-8650c4e94189.png)
+Logged-in User with PR Listing Filtered by Category:
+![userhome](https://cloud.githubusercontent.com/assets/20828566/24225451/8c8c9102-0f2e-11e7-98ce-d71ad6fbb779.png)
