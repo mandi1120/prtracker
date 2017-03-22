@@ -17,11 +17,15 @@
 	margin:0px;
 }
 
-.header img {
-	width: 150px;
-    margin-left: 20px;
+.header {
+    margin-bottom: 10px;
+    background: rgba(10, 10, 10, .1);
+    height: 42px;
 }
-
+.header img {
+  width: 150px;
+  padding-top: 2px;
+}
 .btn-group-lg>.btn, .btn-lg {
     font-size: 1em;
     line-height: 1.3333333;
@@ -44,7 +48,7 @@ h3.text-muted {
 }
 
 body {
-  padding-top: 40px;
+  padding-top: 1px;
   position: relative;
   background: #000 url(../images/barbell.jpg) center no-repeat;
   width: 100%;
