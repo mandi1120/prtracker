@@ -67,6 +67,8 @@ body {
     margin-bottom: 10px;
     background: rgba(10, 10, 10, .1);
     height: 42px;
+    border-bottom: 1px solid rgba(10, 10, 10,.1);
+    border-top: 1px solid rgba(10, 10, 10,.1);
 }
 .header img {
   width: 150px;

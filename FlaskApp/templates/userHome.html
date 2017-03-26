@@ -91,10 +91,45 @@
             });
         }
 
-/*
-        function GetPrsBs() {
+        function GetPrs() {
+            var category = document.getElementById("category").value;
+            var pageUrl;
+
+            if (category === 'backsquat') {
+                pageUrl = '/getPrBacksquat';
+            }
+            else if (category === 'frontsquat'){
+                pageUrl = '/getPrFrontsquat';
+            }
+            else if (category === 'sumodeadlift'){
+                pageUrl = '/getPrSumoDeadlift';
+            }
+            else if (category === 'condeadlift'){
+                pageUrl = '/getPrConvDeadlift';
+            }
+            else if (category === 'row'){
+                pageUrl = '/getPrRow';
+            }
+            else if (category === 'bench'){
+                pageUrl = '/getPrBench';
+            }
+            else if (category === 'ohp'){
+                pageUrl = '/getPrOhp';
+            }
+
+
+            else if (category === 'highestprs'){
+                pageUrl = '/getHighestPrs';
+            }
+            
+
+            else {
+                pageUrl = '/getPr';
+            }
+
+                
             $.ajax({
-                url: '/getPrBacksquat',
+                url: pageUrl,
                 type: 'GET',
                 success: function(res) {
                     var prObj = JSON.parse(res);
@@ -107,7 +142,7 @@
                 }
             });
         }
-*/        
+
         function ConfirmDelete(elem){
             localStorage.setItem('deleteId',$(elem).attr('data-id'));
             $('#deleteModal').modal();
@@ -132,6 +167,7 @@
                 }
             });
         }
+
 /*----- correcting date formatting ------*/
 /*        function DateCustomFormat(Date_Ach) {
             var dateObj = new Date(Date_Ach);
@@ -227,17 +263,26 @@
             <div class="dropdown">
                 <select class="form-control" id="category" name="category" data-width="fit" onchange="GetPrs()">
                 <option title="" value="">Select Category...</option>
-                <option value="*">Show all</option>
-                <option value="bench">Bench</option>
+                <option disabled>─────────────────────────</option>
+                <option value="*">Show All PR's</option>
+                <option value="highestprs">View All-Time Highest PR's</option>
+                <option disabled>─────────────────────────</option>
                 <option value="backsquat">Back Squat</option>
-                <option value="frontsquat">Front Squat</option>
+                <option value="bench">Bench</option>
                 <option value="condeadlift">Conventional Deadlift</option>
+                <option value="frontsquat">Front Squat</option>
                 <option value="sumodeadlift">Sumo Deadlift</option>
                 <option value="ohp">OHP</option>
                 <option value="row">Row</option>
+                <option disabled></option>
                 </select>
             </div>
-
+<!--            <div class="checkbox">
+                <label>
+                <input type="checkbox" name="highestprs" id="highestprs" onchange="GetPrs()">All-Time Highest PRs
+                </label>
+            </div>
+-->
             <div class="panel-body">
                 <ul id="ulist" class="list-group">
                 </ul>
@@ -257,13 +302,26 @@
                  </div>
                 <div class="modal-body">
                     <form role="form">
-                        <div class="form-group">
+<!--                        <div class="form-group">
                             <label for="title" class="control-label">Type of lift:</label>
                             <input type="text" class="form-control" id="editTitle">
-                        </div>
+                        </div> -->
+                        <div class="form-group">
+                        <label for="title" class="control-label">Type of lift:</label>
+                           <select class="form-control" id="editTitle" name="editTitle">
+                                <option value="Bench">Bench</option>
+                                <option value="Back Squat">Back Squat</option>
+                                <option value="Front Squat">Front Squat</option>
+                                <option value="Conventional Deadlift">Conventional Deadlift</option>
+                                <option value="Sumo Deadlift">Sumo Deadlift</option>
+                                <option value="OHP">OHP</option>
+                                <option value="Row">Row</option>
+                            </select>
+                         </div>
+                         
 
                         <div class="form-group">
-                            <label for="amount" class="control-label">Weight:</label>
+                            <label for="amount" class="control-label">Weight (lbs.):</label>
                             <input type="text" class="form-control" id="editAmount">
                         </div>
 

@@ -71,11 +71,16 @@ body {
     margin-top: 30px;
     padding: 30px 40px;
     font-size: 14px;
+    border-radius: 6px;
+    min-width: 400px !important;
+
 }
 .header {
     margin-bottom: 10px;
     background: rgba(10, 10, 10, .1);
     height: 42px;
+    border-bottom: 1px solid rgba(10, 10, 10,.1);
+    border-top: 1px solid rgba(10, 10, 10,.1);
 }
 .header img {
   width: 150px;
@@ -122,7 +127,7 @@ h1 {
     font-size: 14px;
     font-weight: 200;
     text-align: left;
-    color: black;
+    color: #000000;
 }
 .panel-body .checkbox {
     display: block !important;
@@ -136,4 +141,14 @@ h1 {
 .panel-body .pull-right {
     float: none !important;
     text-align: right;
+}
+
+option.separator {
+    margin-top:4px;
+    border-top:1px solid #000000;
+    padding:0;
+}
+option.last {
+  margin-bottom: 10px;
+  font-weight: bold;
 }

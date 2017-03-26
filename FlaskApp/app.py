@@ -389,6 +389,38 @@ def getPrSumoDeadlift():
     except Exception as e:
         return render_template('error.html', error=str(e))
 
+@app.route('/getHighestPrs')
+def getHighestPrs():
+    try:
+        if session.get('user'):
+            _user = session.get('user')
+
+            con = mysql.connect()
+            cursor = con.cursor()
+            cursor.callproc('sp_GetHighestPrs',(_user,))
+            prs = cursor.fetchall()
+            
+            prs_dict = []
+            for pr in prs:
+                pr_dict = {
+                    'Id': pr[0],
+                    'Title': pr[1],
+                    'Amount': pr[2],
+                    'Date_Ach': pr[3],
+                    'Description': pr[4],
+                    'Date': pr[6]}
+                prs_dict.append(pr_dict)
+            
+            return json.dumps(prs_dict)
+
+        else:
+            return render_template('error.html', error = 'Unauthorized Access')
+    except Exception as e:
+        return render_template('error.html', error=str(e))
+
+
+
+
 @app.route('/getPrById', methods=['POST'])
 def getPrById():
     try:
